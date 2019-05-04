@@ -40,11 +40,11 @@ module.exports = {
   delete: (req, res) => {
     console.log('IN DELETE');
 
-    const { index } = req.query;
+    const { id } = req.query;
 
     db.Todo.destroy({
       where: {
-        id: index
+        id: id
       }
     })
     .then(() => {

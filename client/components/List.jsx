@@ -16,11 +16,15 @@ class List extends Component {
     this.deleteTodo = this.deleteTodo.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchTodos();
+  } 
+
   fetchTodos() {
     axios
       .get("/api/todoList", { params: { listName: this.state.listName } })
       .then(({ data }) =>
-        this.setState({ todos: data }, () => console.log(this.state))
+        this.setState({ todos: data }, () => console.log(this.state.todos))
       )
       .catch(err => console.log(err));
   }
@@ -33,7 +37,7 @@ class List extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { todo, todos, listName } = this.state;
+    const { todo, listName } = this.state;
     axios
       .post("/api/todoList", { todo, listName: this.state.listName })
       .then(() => this.fetchTodos())
@@ -41,9 +45,10 @@ class List extends Component {
     e.target.reset();
   }
 
-  deleteTodo(todo) {
+  deleteTodo(id) {
+    console.log('THIS IS THE INDEX FROM DELETETODO', id);
     axios
-      .delete("/api/todoList", { params: { listName: this.state.listName } })
+      .delete("/api/todoList", { params: { id }})
       .then(() => this.fetchTodos())
       .catch(err => console.log(err));
   }
@@ -57,14 +62,11 @@ class List extends Component {
         </form>
         <br />
         <div>
-          {this.state.todos.map((todo, index) => (
-            <ListEntry
-              key={index}
-              todo={todo}
-              index={index}
-              delete={this.deleteTodo}
-            />
-          ))}
+          { 
+            this.state.todos.map((todo, index) => {
+            return <ListEntry key={index} todo={todo.todo} id={todo.id} delete={this.deleteTodo} />
+            }
+          )}
         </div>
       </div>
     );
