@@ -6,7 +6,7 @@ npm run build <br />
 npm start <br />
 
 #Exercise-1 <br />
-In server/index.js begin setting up your express server. Add a start script to your package.json that will run the server.
+In server/index.js begin setting up your express server and connect to your database. Add a start script to your package.json that will run the server.
 
 #Exercise-2 <br />
 Build out the GET, POST, and DELETE functions in express-server index.js
