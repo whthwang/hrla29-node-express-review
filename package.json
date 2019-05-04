@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyijulie/node-express-review.git"
+    "url": "git+https://github.com/JenniferHaren/hrla29-node-express-review.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kyijulie/node-express-review/issues"
+    "url": "https://github.com/JenniferHaren/hrla29-node-express-review/issues"
   },
-  "homepage": "https://github.com/kyijulie/node-express-review#readme",
+  "homepage": "https://github.com/JenniferHaren/hrla29-node-express-review#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "mysql": "^2.17.1",
