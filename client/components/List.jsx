@@ -36,7 +36,7 @@ class List extends Component {
     const { todo, todos, listName } = this.state;
     axios
       .post("/api/todoList", { todo, listName: this.state.listName })
-      .then(this.fetchTodos())
+      .then(() => this.fetchTodos())
       .catch(err => console.log(err));
     e.target.reset();
   }
@@ -44,7 +44,7 @@ class List extends Component {
   deleteTodo(todo) {
     axios
       .delete("/api/todoList", { params: { listName: this.state.listName } })
-      .then(this.fetchTodos())
+      .then(() => this.fetchTodos())
       .catch(err => console.log(err));
   }
 
